@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/item_chat"
+        android:icon="@drawable/ic_chat_black_24dp"
+        android:title="聊天" />
+    <item
+        android:id="@+id/item_friends"
+        android:icon="@drawable/ic_people_black_24dp"
+        android:title="朋友" />
+    <item
+        android:id="@+id/item_home"
+        android:icon="@drawable/ic_home_black_24dp"
+        android:title="我的" />
+    <item
+        android:id="@+id/item_more"
+        android:icon="@drawable/ic_add_box_black_24dp"
+        android:title="更多" />
+</menu>
