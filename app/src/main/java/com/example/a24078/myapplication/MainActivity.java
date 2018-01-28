@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
     FriendsFragment friendsFragment;
     HomeFragment homeFragment;
     MoreFragment moreFragment;
-    ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager(), fgLists);
+    ViewPagerAdapter adapter;
     private MenuItem menuItem;
 
     @Override
@@ -53,11 +53,13 @@ public class MainActivity extends AppCompatActivity {
                 }
         );
         viewPager.setAdapter(adapter);
+        viewPager.setOffscreenPageLimit(3); //预加载剩下两页
     }
 
     private void initView() {
         viewPager = (ViewPager) findViewById(R.id.viewpager);
         bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottom_navigation);
+        BottomNavigationViewHelper.disableShiftMode(bottomNavigationView);
         chatFragment = new ChatFragment();
         friendsFragment = new FriendsFragment();
         homeFragment = new HomeFragment();
@@ -66,6 +68,8 @@ public class MainActivity extends AppCompatActivity {
         fgLists.add(friendsFragment);
         fgLists.add(homeFragment);
         fgLists.add(moreFragment);
+
+        adapter = new ViewPagerAdapter(getSupportFragmentManager(), fgLists);
 
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
